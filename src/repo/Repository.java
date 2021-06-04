@@ -58,7 +58,7 @@ public class Repository {
 	}
 
 	public void adaugaStudent(Student s) { // singleton
-
+		data.Main.logger.info("Studentul: " + s.toString() + " a fost adaugat in repo");
 		studenti.add(s);
 
 		suprasciereDb();
@@ -69,7 +69,7 @@ public class Repository {
 	public void stergeStudent(String nume) {
 
 		for (int i = 0; i < studenti.size(); i++) {
-			if (studenti.get(i).getNume().equals(nume)) {
+			if (studenti.get(i).getNume().toString().contains(nume)) {
 				studenti.remove(i);
 				break;
 			}
@@ -100,7 +100,7 @@ public class Repository {
 
 		for (int i = 0; i < studenti.size(); i++) {
 
-			if (studenti.get(i).equals(numeStudent)) {
+			if (studenti.get(i).toString().contains(numeStudent)) {
 
 				studenti.get(i).adaugaNota(nota, nrCredite);
 

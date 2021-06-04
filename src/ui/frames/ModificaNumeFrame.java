@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import combo.ComboStudenti;
+import combo.ComboStudentiModifica;
 import ui.Command;
 import ui.buttons.ModificaNumeButton;
 
@@ -19,11 +21,13 @@ public class ModificaNumeFrame extends JFrame implements ActionListener {
 	JPanel firstPannel;
 	JPanel secondPannel;
 
-	JTextField numeTextNume;
+	ComboStudentiModifica numeTextNume;
 	JTextField numeTextModifica;
 
 	JLabel numeLabel;
 	JLabel modificaLael;
+	
+	JTextField studenti;
 
 	ModificaNumeButton buttonModifica;
 
@@ -38,18 +42,26 @@ public class ModificaNumeFrame extends JFrame implements ActionListener {
 
 		this.numeLabel = new JLabel("Introduceti numele");
 		this.firstPannel.add(numeLabel);
-		this.numeTextNume = new JTextField(15);
+		
+		this.studenti = new JTextField(15);
+		this.studenti.setEditable(false);
+		
+		this.numeTextNume = new ComboStudentiModifica(studenti);
+		this.numeTextNume.addActionListener(this);
+		
 		this.firstPannel.add(numeTextNume);
+		this.firstPannel.add(studenti);
 
 		this.modificaLael = new JLabel("Introduceti numele schimbat");
 		this.firstPannel.add(modificaLael);
+		
 		this.numeTextModifica = new JTextField(15);
 		this.firstPannel.add(numeTextModifica);
 		
-		this.buttonModifica = new ModificaNumeButton(this.numeTextNume, this.numeTextModifica);
-		this.buttonModifica.addActionListener(this);
-		
+		this.buttonModifica = new ModificaNumeButton(this.studenti, this.numeTextModifica);
+		this.buttonModifica.addActionListener(this);		
 		this.firstPannel.add(buttonModifica);
+		
 		this.mainPannel.add(firstPannel);
 
 		this.add(mainPannel);

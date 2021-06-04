@@ -1,21 +1,22 @@
-package data;
+package combo;
 
 import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
+import javax.swing.JTextField;
 
+import data.Student;
 import repo.Repository;
 import ui.Command;
 import ui.Observer;
 
-public class ComboStudenti extends JComboBox implements Observer, Command {
+public class ComboStudentiModifica extends JComboBox implements Observer, Command {
 
 	private static ArrayList<Student> listaStudent;
 	private static Vector<String> v = new Vector<String>();
-	
-	JLabel studenti;
+
+	JTextField studenti;
 
 	static {
 		listaStudent = Repository.getInstance().getStudenti();
@@ -26,10 +27,11 @@ public class ComboStudenti extends JComboBox implements Observer, Command {
 
 	}
 
-	public ComboStudenti(JLabel s) {
+	public ComboStudentiModifica(JTextField s) {
 		super(v);
-		
-		this.studenti=s;
+
+		this.studenti = s;
+		Repository.getInstance().addObserver(this);
 
 	}
 
@@ -43,14 +45,17 @@ public class ComboStudenti extends JComboBox implements Observer, Command {
 
 	}
 
-	
 	public void execute() {
-		
+
 		String studentSelectat = this.getSelectedItem().toString().trim();
-		
+
 		studenti.setText(studentSelectat);
-		
-		
+
+	}
+
+	public Object getSelectedText() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

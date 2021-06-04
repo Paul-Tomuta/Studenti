@@ -26,6 +26,7 @@ public class AdaugareStudentFrame extends JFrame implements ActionListener {
 
 	JLabel notaLabel;
 	JComboBox notaCombo;
+	
 	JComboBox creditCombo;
 	JLabel nrCrediteLabel;
 

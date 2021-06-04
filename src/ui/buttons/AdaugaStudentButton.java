@@ -3,6 +3,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+
 import data.Nota;
 import data.Student;
 import repo.Repository;
@@ -23,7 +24,8 @@ public class AdaugaStudentButton extends JButton implements Command {
 	}
 
 	public void execute() {
-
+		data.Main.logger.info("Studentu a fost adaugat");
+		
 		String numeStudent = numeTxt.getText().trim();
 		
 		int n = Integer.parseInt(notaCombo.getSelectedItem().toString());

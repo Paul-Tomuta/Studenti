@@ -19,7 +19,7 @@ public class StergeNotaFrame extends JFrame implements ActionListener {
 	JPanel mainPannel;
 	JPanel firstPannel;
 	JPanel secondPannel;
-
+	
 	JTextField numeField;
 	JLabel numeTextLabel;
 

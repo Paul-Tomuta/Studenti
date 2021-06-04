@@ -1,9 +1,7 @@
-/*
 package ui.frames;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -12,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import data.ComboStudenti;
+import combo.ComboStudenti;
 import ui.Command;
 import ui.buttons.StergeStudentButton;
 
-public class StergeStudentFrame extends JFrame implements ActionListener{
+public class StergeStudentFrame extends JFrame implements ActionListener {
 
 	JPanel mainPannel;
 	JPanel firstPannel;
@@ -24,9 +22,9 @@ public class StergeStudentFrame extends JFrame implements ActionListener{
 	ComboStudenti numeText;
 
 	JLabel numeLabel;
-	
+
 	JLabel studenti;
-	
+
 	StergeStudentButton butonStergere;
 
 	public StergeStudentFrame() {
@@ -42,18 +40,16 @@ public class StergeStudentFrame extends JFrame implements ActionListener{
 		this.studenti = new JLabel();
 		this.numeText = new ComboStudenti(studenti);
 		this.numeText.addActionListener(this);
-		
+
 		this.firstPannel.add(numeText);
 		this.firstPannel.add(studenti);
-	
-		
-		
+
 		this.butonStergere = new StergeStudentButton(this.numeText);
 		this.butonStergere.addActionListener(this);
 		this.firstPannel.add(butonStergere);
-		
+
 		this.mainPannel.add(firstPannel);
-			
+
 		this.add(mainPannel);
 		this.pack();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -66,4 +62,3 @@ public class StergeStudentFrame extends JFrame implements ActionListener{
 	}
 
 }
-*/

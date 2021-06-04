@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import combo.ComboStudenti;
 import ui.Command;
 import ui.buttons.AdaugaNotaButton;
 
@@ -20,7 +21,7 @@ public class AdaugaNotaFrame extends JFrame implements ActionListener {
 	JPanel firstPannel;
 	JPanel secondPannel;
 
-	JTextField numeField;
+	
 	JLabel numeTextLabel;
 
 	JLabel notaLabel;
@@ -28,6 +29,10 @@ public class AdaugaNotaFrame extends JFrame implements ActionListener {
 	
 	JComboBox creditCombo;
 	JLabel nrCrediteLabel;
+	
+	JLabel studentiCombo;
+	
+	ComboStudenti numeTextCombo;
 
 	AdaugaNotaButton adaugaNotaButton;
 
@@ -36,14 +41,20 @@ public class AdaugaNotaFrame extends JFrame implements ActionListener {
 		this.mainPannel = new JPanel();
 		BoxLayout layout = new BoxLayout(mainPannel, BoxLayout.Y_AXIS);
 		this.mainPannel.setLayout(layout);
-
+		
 		this.firstPannel = new JPanel();
 		this.secondPannel = new JPanel();
+		
+		
+		
+		this.studentiCombo = new JLabel();
+		this.numeTextCombo = new ComboStudenti(studentiCombo);
+		this.numeTextCombo.addActionListener(this);
+		this.firstPannel.add(numeTextCombo);
 
 		this.numeTextLabel = new JLabel("Introduceti studentu");
 		this.firstPannel.add(numeTextLabel);
-		this.numeField = new JTextField(15);
-		this.firstPannel.add(numeField);
+		
 
 		this.notaLabel = new JLabel("Selectati nota");
 		this.secondPannel.add(notaLabel);
@@ -57,7 +68,7 @@ public class AdaugaNotaFrame extends JFrame implements ActionListener {
 		this.creditCombo = new JComboBox<String>(x);
 		this.secondPannel.add(creditCombo);
 
-		this.adaugaNotaButton = new AdaugaNotaButton(this.numeField, this.notaCombo, this.creditCombo);
+		this.adaugaNotaButton = new AdaugaNotaButton(this.numeTextCombo, this.notaCombo, this.creditCombo);
 		this.adaugaNotaButton.addActionListener(this);
 		this.secondPannel.add(adaugaNotaButton);
 

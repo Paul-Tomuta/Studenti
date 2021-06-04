@@ -1,4 +1,4 @@
- package ui.frames;
+/* package ui.frames;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -131,3 +131,4 @@ public class AllInclusiveFrame extends JFrame implements ActionListener {
 	}
 
 }
+*/
