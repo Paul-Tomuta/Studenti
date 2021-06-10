@@ -1,9 +1,14 @@
 package data;
 
+import memeto.NotaMemeto;
+import memeto.State;
+
 public class Nota {
 
 	private int nota;
 	private int nrCredite;
+	
+	private State stare = State.NEW;
 
 	public Nota(int nota, int nrCredite) {
 
@@ -29,6 +34,21 @@ public class Nota {
 
 	public void setNrCredite(int nrCredite) {
 		this.nrCredite = nrCredite;
+	}
+	
+	public NotaMemeto memeto() {
+		
+		return new NotaMemeto(nota, nrCredite, stare);
+		
+	}
+	
+	public void restoreMemetoNota(NotaMemeto std) {
+		
+		this.nota = std.getNota();
+		this.nrCredite= std.getNrCredite();
+		this.stare= std.getState();
+		
+		
 	}
 
 

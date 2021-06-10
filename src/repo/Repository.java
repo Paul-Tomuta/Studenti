@@ -13,12 +13,17 @@ import java.util.Scanner;
 
 import data.Nota;
 import data.Student;
+import memeto.NotaMemeto;
+import memeto.StudentMemeto;
 import ui.Observer;
 
 public class Repository {
 
 	private ArrayList<Student> studenti = new ArrayList<Student>();
 	private ArrayList<Observer> observatori = new ArrayList<Observer>();
+	
+	private StudentMemeto memetoStudent;
+	private NotaMemeto memetoNota;
 
 	private static Repository obiectCreeat = null;
 
@@ -80,6 +85,7 @@ public class Repository {
 
 	}
 
+
 	public void modificaNume(String nv, String nn) {
 
 		for (int i = 0; i < studenti.size(); i++) {
@@ -139,6 +145,22 @@ public class Repository {
 
 	public ArrayList<Student> getStudenti() {
 		return studenti;
+	}
+
+	public StudentMemeto getMemetoStudent() {
+		return memetoStudent;
+	}
+
+	public void setMemetoStudent(StudentMemeto memetoStudent) {
+		this.memetoStudent = memetoStudent;
+	}
+
+	public NotaMemeto getMemetoNota() {
+		return memetoNota;
+	}
+
+	public void setMemetoNota(NotaMemeto memetoNota) {
+		this.memetoNota = memetoNota;
 	}
 
 	public void notifyAllObservers() {

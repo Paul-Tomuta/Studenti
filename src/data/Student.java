@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import data.Nota;
+import memeto.State;
+import memeto.StudentMemeto;
 import ui.Command;
 import repo.Repository;
 import ui.frames.AdaugaNotaFrame;
@@ -13,10 +15,13 @@ import ui.frames.StergeNotaFrame;
 import ui.frames.StergeStudentFrame;
 import ui.frames.TabelFrame;
 
+
+
 public class Student {
 
 	private String nume;
 	private ArrayList<Nota> listaNote = new ArrayList<Nota>();
+	private State stare = State.NEW;
 
 	public Student(String linie) {
 
@@ -78,12 +83,21 @@ public class Student {
 		return nume + ":" + listaNote.toString().substring(1, listaNote.toString().length() - 1);
 	}
 
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((listaNote == null) ? 0 : listaNote.hashCode());
-		result = prime * result + ((nume == null) ? 0 : nume.hashCode());
-		return result;
+
+	
+	public StudentMemeto memeto() {
+		
+		return new StudentMemeto(nume, listaNote,stare);
+	}
+	
+	
+	public void restoreMemeto(StudentMemeto std) {
+		
+		this.nume=std.getNume();
+		this.listaNote=std.getListaNote();
+		this.stare=std.getState();
+		
+		
 	}
 
 	public boolean equals(Object obj) {
