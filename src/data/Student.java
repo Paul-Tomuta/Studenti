@@ -62,6 +62,20 @@ public class Student {
 		this.nume = nu;
 		this.listaNote.add(n);
 	}
+	
+	public Student(String nu, ArrayList nt) {
+		
+		this.nume=nu;
+		this.listaNote=nt;
+		
+	}
+	
+	public Object clone() {
+		Main.logger.info("Clonare");
+		
+		return new Student(this.nume, this.listaNote);
+		
+	}
 
 	public ArrayList<Nota> getListaNote() {
 		return listaNote;
