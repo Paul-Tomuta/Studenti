@@ -23,6 +23,19 @@ public class Student {
 	private ArrayList<Nota> listaNote = new ArrayList<Nota>();
 	private State stare = State.NEW;
 
+	private long cnp;
+	private String serieBuletin;
+	private String numarBuletin;
+
+	public Student(String nume, ArrayList<Nota> listaNote, long cnp, String serieBuletin, String numarBuletin) {
+		
+		this.nume = nume;
+		this.listaNote = listaNote;
+		this.cnp = cnp;
+		this.serieBuletin = serieBuletin;
+		this.numarBuletin = numarBuletin;
+	}
+
 	public Student(String linie) {
 
 		int nr = linie.indexOf(":");
@@ -91,6 +104,30 @@ public class Student {
 
 	public void setNume(String nume) {
 		this.nume = nume;
+	}
+
+	public long getCnp() {
+		return cnp;
+	}
+
+	public void setCnp(long cnp) {
+		this.cnp = cnp;
+	}
+
+	public String getSerieBuletin() {
+		return serieBuletin;
+	}
+
+	public void setSerieBuletin(String serieBuletin) {
+		this.serieBuletin = serieBuletin;
+	}
+
+	public String getNumarBuletin() {
+		return numarBuletin;
+	}
+
+	public void setNumarBuletin(String numarBuletin) {
+		this.numarBuletin = numarBuletin;
 	}
 
 	public String toString() {

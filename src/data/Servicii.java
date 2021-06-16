@@ -37,54 +37,66 @@ public class Servicii {
 		return calcul;
 
 	};
-	
-	public final static Predicate<Nota> getCredite =(n)->{
-		
-	return	n.getNota() >= 5 ? true : false;
-		
-		
+
+	public final static Predicate<Nota> getCredite = (n) -> {
+
+		return n.getNota() >= 5 ? true : false;
+
 	};
-	
-	public final static Predicate<Nota> getCredite2 = (n)-> n.getNota() >= 5;
-	
-	public final static Function<Nota, Integer> getCredite3 = n-> n.getNota() >= 5 ? n.getNrCredite() :0;
-	
-	public final static Function<ArrayList<Nota>, Integer> totalCredite = l->{
-		
-	return	l.stream().mapToInt(n-> n.getNota() >= 5 ? n.getNrCredite() :0).sum();
-		
+
+	public final static Predicate<Nota> getCredite2 = (n) -> n.getNota() >= 5;
+
+	public final static Function<Nota, Integer> getCredite3 = n -> n.getNota() >= 5 ? n.getNrCredite() : 0;
+
+	public final static Function<ArrayList<Nota>, Integer> totalCredite = l -> {
+
+		return l.stream().mapToInt(n -> n.getNota() >= 5 ? n.getNrCredite() : 0).sum();
+
 	};
-	
-	public final static Predicate<Student> promovat = s -> totalCredite.apply(s.getListaNote()) >= 20 ;
-	
-	public final static Consumer<ArrayList<Student>> afisareStudentiPromovati = l->{
-		
+
+	public final static Predicate<Student> promovat = s -> totalCredite.apply(s.getListaNote()) >= 20;
+
+	public final static Consumer<ArrayList<Student>> afisareStudentiPromovati = l -> {
+
 		l.stream().filter(promovat).forEach(System.out::println);
-		
+
 	};
-	
+
 //	public final static Predicate<Student> eFemeie = l-> l.getNume().trim().lastIndexOf(l.toString().charAt(l.toString().length()-1))   ; 
-	
-	public final static Predicate<Student> fomeie =  l -> l.getNume().trim().charAt(l.getNume().trim().length()-1)=='a';
-			
-	public final static Consumer<ArrayList<Student>> afisareFemei = l -> l.stream().filter(fomeie).forEach(System.out::println);
-	
-	public final static BiFunction<String, ArrayList<Student>, Optional<Student>> searchStudent = (name,lista)->{ // clonare /prototipe
-		Student obj =null;
+
+	public final static Predicate<Student> fomeie = l -> l.getNume().trim()
+			.charAt(l.getNume().trim().length() - 1) == 'a';
+
+	public final static Consumer<ArrayList<Student>> afisareFemei = l -> l.stream().filter(fomeie)
+			.forEach(System.out::println);
+
+	public final static BiFunction<String, ArrayList<Student>, Optional<Student>> searchStudent = (name, lista) -> { // clonare
+																														// /prototipe
+		Student obj = null;
 		for (Student student : lista) {
-			if(student.getNume().trim().equalsIgnoreCase(name.trim())) {
-				obj =  (Student) student.clone();
+			if (student.getNume().trim().equalsIgnoreCase(name.trim())) {
+				obj = (Student) student.clone();
 				System.out.println(obj);
 				Optional<Student> cutieDeReturnat = Optional.of(obj);
 				return cutieDeReturnat;
 			}
-			
+
 		}
 		return Optional.empty();
-		
+
 	};
-	
-	
-	
+
+	public final static Function<Student, Integer> celMaiMare = (Student s) -> {
+
+		int count = 0;
+
+		for (Nota n : s.getListaNote()) {
+			if (n.getNota() > count)
+				count = n.getNota();
+
+		}
+		return count;
+
+	};
 
 }

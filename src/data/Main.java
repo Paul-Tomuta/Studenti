@@ -56,12 +56,17 @@ public class Main {
 	
 //	Servicii.afisareStudentiPromovati.accept(Repository.getInstance().getStudenti());
 	
-	Optional<Student> studentGasit = Servicii.searchStudent.apply("TANASA RALUCA", Repository.getInstance().getStudenti());
+/*	Optional<Student> studentGasit = Servicii.searchStudent.apply("TANASA RALUCA", Repository.getInstance().getStudenti());
 	if(studentGasit.isEmpty())
 		System.out.println("Nu am gasit studentu");
 	else
 		System.out.println("Student gasit"+studentGasit.get().toString());
 	
 	}
-
+*/
+		 
+		System.out.println( Servicii.celMaiMare.apply(s1));
+		 
 }
+}
+	
